@@ -20,11 +20,7 @@ class ExpenseTracker:
     def __init__(self):
         self.client = MongoClient("localhost",27017)
         self.db = self.client["ExpenseDB"]
-        self.collection = self.db["expenses"]
-
-    # connection = pymongo.MongoClient("localhost", 27017)
-    # database = connection["ExpenseDB"]
-    # collection = database["expenses"]
+        self.collection = self.db["expenses"]    
 
     def add_expense(self):
         description :str= input("Enter description: ")
@@ -40,7 +36,7 @@ class ExpenseTracker:
         date:str = input("Enter date (YYYY-MM-DD): ")
 
         try:
-            datetime.strptime(date, "%Y-%m-%d")  # Validate date
+            datetime.strptime(date, "%Y-%m-%d")  
         except ValueError:
             print("Invalid date format. Please enter a date in the format YYYY-MM-DD.")
             return
